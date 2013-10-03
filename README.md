@@ -19,9 +19,18 @@ Alternately, you can cascade with other buildpacks:
     $ echo https://github.com/leesei/heroku-buildpack-casperjs.git > .buildpacks
 
     # echo [other buildpack] >> .buildpacks
-
     # `git add` your files
 
     $ git push heroku master
+
+You can also login to the herokuapp and execute `phantomjs` and `casperjs`:
+
+    $ heroku run bash
+    Running `bash` attached to terminal... up, run.2587
+    Add phantomjs/casperjs paths ...
+    ~ $ casperjs
+
+
+
 
 
