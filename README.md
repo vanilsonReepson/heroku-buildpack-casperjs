@@ -1,43 +1,38 @@
-Heroku buildpack: CasperJS
-=======================
+# Heroku buildpack: CasperJS
 
 This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) of [CasperJS](http://casperjs.org) / [PhantomJS](http://phantomjs.org/).
 
-Usage
------
+## Usage
 
 Example usage:
 
-    $ heroku create --stack cedar --buildpack https://github.com/leesei/heroku-buildpack-casperjs.git
+```bash
+$ heroku create --stack cedar --buildpack https://github.com/leesei/heroku-buildpack-casperjs.git
 
-    $ git push heroku master
+$ git push heroku master
+```
 
-Alternately, you can cascade with other buildpacks:
+Alternately, you can cascade with other buildpacks (since this buildpack uses `profile.d/casperjs.sh` to add to PATH):
 
-    $ heroku create --stack cedar --buildpack https://github.com/ddollar/heroku-buildpack-multi.git
+```bash
+$ heroku create --stack cedar --buildpack https://github.com/ddollar/heroku-buildpack-multi.git
 
-    $ echo https://github.com/leesei/heroku-buildpack-casperjs.git > .buildpacks
+$ echo https://github.com/leesei/heroku-buildpack-casperjs.git > .buildpacks
 
-    # echo [other buildpack] >> .buildpacks
-    # `git add` your files
+# echo [other buildpack] >> .buildpacks
+# `git add` your files
 
-    $ git push heroku master
+$ git push heroku master
+```
 
 You can also login to the herokuapp and execute `phantomjs` and `casperjs`:
 
-    $ heroku run bash
-    Running `bash` attached to terminal... up, run.2587
-    Add phantomjs/casperjs paths ...
-    $ casperjs
-
-NOTE
-----
-
-After commit 687a395061, these two config has to be set:
-
 ```bash
-heroku config:set PATH="${PATH}:/app/vendor/phantomjs/bin:/app/vendor/casperjs/bin"
-heroku config:set LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/app/vendor/phantomjs/lib"
+$ heroku run bash
+Running `bash` attached to terminal... up, run.2587
+Add phantomjs/casperjs paths ...
+
+$ casperjs
 ```
 
 
