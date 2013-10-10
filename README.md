@@ -28,9 +28,17 @@ You can also login to the herokuapp and execute `phantomjs` and `casperjs`:
     $ heroku run bash
     Running `bash` attached to terminal... up, run.2587
     Add phantomjs/casperjs paths ...
-    ~ $ casperjs
+    $ casperjs
 
+NOTE
+----
 
+After commit 687a395061, these two config has to be set:
+
+```bash
+heroku config:set PATH="${PATH}:/app/vendor/phantomjs/bin:/app/vendor/casperjs/bin"
+heroku config:set LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/app/vendor/phantomjs/lib"
+```
 
 
 
