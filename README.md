@@ -43,3 +43,7 @@ $ echo https://github.com/leesei/heroku-buildpack-casperjs.git > .buildpacks
 
 $ git push heroku master
 ```
+
+Example: [leesei/heroku-casper-node](https://github.com/leesei/heroku-casper-node)
+
+You can replace Node with other language of your choice.
