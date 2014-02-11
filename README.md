@@ -4,7 +4,7 @@ This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) of
 
 **Note**: this buildpack only installs the `phantomjs` and `casperjs` binaries.
 
-**Note2**: This buildpack checks out the laters CasperJS on master branch.  
+**Note2**: this buildpack checks out the latest CasperJS on master branch.  
 If you need a specific version, please fork and change the git URL or add a `git co <tag>` [here](bin/compile#L32).
 
 ## Usage
