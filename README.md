@@ -2,6 +2,8 @@
 
 This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) of [CasperJS](http://casperjs.org) / [PhantomJS](http://phantomjs.org/).
 
+This fork now resembles more to [stomita/heroku-buildpack-phantomjs](https://github.com/stomita/heroku-buildpack-phantomjs) and will be merged intermittently.
+
 **Note**: this buildpack only installs the `phantomjs` and `casperjs` binaries.
 
 **Note2**: this buildpack checks out the latest CasperJS on `master` branch.  
