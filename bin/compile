@@ -8,7 +8,8 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 
 # config
-VERSION="1.9.2"
+VERSION="1.9.7"
+CASPER_VERSION="master"
 
 # Buildpack URL
 ARCHIVE_NAME=phantomjs-${VERSION}-linux-x86_64
@@ -18,7 +19,7 @@ BUILDPACK_PHANTOMJS_PACKAGE=https://phantomjs.googlecode.com/files/${FILE_NAME}
 mkdir -p $CACHE_DIR
 if ! [ -e $CACHE_DIR/$FILE_NAME ]; then
   echo "-----> Fetching PhantomJS ${VERSION} binaries at ${BUILDPACK_PHANTOMJS_PACKAGE}"
-  curl $BUILDPACK_PHANTOMJS_PACKAGE -s -o $CACHE_DIR/$FILE_NAME
+  curl $BUILDPACK_PHANTOMJS_PACKAGE -L -s -o $CACHE_DIR/$FILE_NAME
 fi
 
 echo "-----> Extracting PhantomJS ${VERSION} binaries to ${BUILD_DIR}/vendor/phantomjs"
@@ -30,8 +31,8 @@ mv $CACHE_DIR/$ARCHIVE_NAME $BUILD_DIR/vendor/phantomjs
 echo "-----> Cloning CasperJS"
 cd ${BUILD_DIR}/vendor
 git clone git://github.com/n1k0/casperjs.git
+git checkout ${CASPER_VERSION}
 
 echo "-----> Installing .profile.d/casperjs.sh"
-cd ${BUILD_DIR}
-mkdir -p .profile.d
-cp ${BIN_DIR}/casperjs.sh .profile.d/
+mkdir -p ${BUILD_DIR}/.profile.d
+cp ${BIN_DIR}/casperjs.sh ${BUILD_DIR}/.profile.d/

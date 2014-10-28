@@ -4,8 +4,8 @@ This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) of
 
 **Note**: this buildpack only installs the `phantomjs` and `casperjs` binaries.
 
-**Note2**: this buildpack checks out the latest CasperJS on master branch.  
-If you need a specific version, please fork and change the git URL or add a `git co <tag>` [here](bin/compile#L32).
+**Note2**: this buildpack checks out the latest CasperJS on `master` branch.  
+If you need a specific version, please change `CASPER_VERSION` in [bin/compile](bin/compile#L12).
 
 ## Usage
 
@@ -25,16 +25,16 @@ Running `bash` attached to terminal... up, run.2587
 Add phantomjs/casperjs paths ...
 
 $ phantomjs --version
-1.9.2
+1.9.7
 
 $ casperjs --version
-1.1.0-DEV
+1.1.0-beta3
 ```
 
 ---
 
 Alternately, you can cascade with other buildpacks with [buildpack-multi](https://github.com/ddollar/heroku-buildpack-multi). 
-`buildpack-casperjs` plays well with cascading since this buildpack uses `profile.d/casperjs.sh` to add to PATH.
+`buildpack-casperjs` plays well with cascading since it uses `.profile.d/casperjs.sh` (rather than solely on config var) to add to PATH.
 
 ```bash
 $ heroku create --stack cedar --buildpack https://github.com/ddollar/heroku-buildpack-multi.git
@@ -49,4 +49,4 @@ $ git push heroku master
 
 Example: [leesei/heroku-casper-node](https://github.com/leesei/heroku-casper-node)
 
-You can replace Node with other language of your choice.
+You can replace Node with other language and driver of your choice.
