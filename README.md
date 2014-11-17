@@ -14,8 +14,9 @@ If you need a specific version, please change `CASPER_VERSION` in [bin/compile](
 Example usage:
 
 ```bash
+# in an empty folder
+$ git init
 $ heroku create --stack cedar --buildpack https://github.com/leesei/heroku-buildpack-casperjs.git
-
 $ git push heroku master
 ```
 
