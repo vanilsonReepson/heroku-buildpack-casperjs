@@ -19,7 +19,9 @@ Example usage:
 # in an empty folder
 $ git init
 $ heroku create --stack cedar --buildpack https://github.com/leesei/heroku-buildpack-casperjs.git
-$ git commit -am "empty" --allow-empty # force a git commit
+# trigger the build with a push
+$ touch empty; git add empty
+$ git commit -am "empty"
 $ git push heroku master
 ```
 
@@ -31,16 +33,16 @@ Running `bash` attached to terminal... up, run.2587
 Add phantomjs/casperjs paths ...
 
 $ phantomjs --version
-1.9.7
+2.1.1
 
 $ casperjs --version
-1.1.0-beta3
+1.1.0-beta5
 ```
 
 ---
 
 Alternately, you can cascade with other buildpacks with [buildpack-multi](https://github.com/ddollar/heroku-buildpack-multi). 
-`buildpack-casperjs` plays well with cascading since it uses `.profile.d/casperjs.sh` (rather than solely on config var) to add to PATH.
+`buildpack-casperjs` plays well with cascading since it uses `.profile.d/casperjs.sh` on login (rather than solely on `config_vars`) to add to PATH.
 
 ```bash
 $ heroku create --stack cedar --buildpack https://github.com/ddollar/heroku-buildpack-multi.git
