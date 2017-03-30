@@ -9,7 +9,7 @@ CACHE_DIR=$2
 
 # config
 VERSION="2.1.1"
-CASPER_VERSION="1.0.4"
+CASPER_VERSION="1.1.0-beta5"
 
 # Buildpack URL
 ARCHIVE_NAME=phantomjs-${VERSION}-linux-x86_64
